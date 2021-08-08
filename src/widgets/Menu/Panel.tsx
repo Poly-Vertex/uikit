@@ -12,17 +12,17 @@ interface Props extends PanelProps, PushedProps {
 
 const StyledPanel = styled.div<{ isPushed: boolean; showMenu: boolean }>`
   position: fixed;
-  padding-top: ${({ showMenu }) => (showMenu ? "80px" : 0)};
+  padding-right: ${({ showMenu }) => (showMenu ? "80px" : 0)};
   top: 0;
   left: 0;
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
   justify-content: space-between;
   flex-shrink: 0;
   background-color: ${({ theme }) => theme.nav.background};
-  width: ${({ isPushed }) => (isPushed ? `${SIDEBAR_WIDTH_FULL}px` : 0)};
-  height: 100vh;
-  transition: padding-top 0.2s, width 0.2s;
+  width: 100%;
+  height: ${({ isPushed }) => (isPushed ? `${SIDEBAR_WIDTH_FULL}px` : 0)};
+  transition: padding-top 0.2s, height 0.2s;
   border-right: ${({ isPushed }) => (isPushed ? "2px solid rgba(133, 133, 133, 0.1)" : 0)};
   z-index: 11;
   overflow: ${({ isPushed }) => (isPushed ? "initial" : "hidden")};
@@ -30,7 +30,7 @@ const StyledPanel = styled.div<{ isPushed: boolean; showMenu: boolean }>`
 
   ${({ theme }) => theme.mediaQueries.nav} {
     border-right: 2px solid rgba(133, 133, 133, 0.1);
-    width: ${({ isPushed }) => `${isPushed ? SIDEBAR_WIDTH_FULL : SIDEBAR_WIDTH_REDUCED}px`};
+    height: ${({ isPushed }) => `${isPushed ? SIDEBAR_WIDTH_FULL : SIDEBAR_WIDTH_REDUCED}px`};
   }
 `;
 
@@ -46,12 +46,12 @@ const Panel: React.FC<Props> = (props) => {
   return (
     <StyledPanel isPushed={isPushed} showMenu={showMenu}>
       <PanelBody {...props} />
-      <AssureKyc target="_blank" rel="noreferrer" href="https://www.assuredefi.io/projects/polyvertex/">
+      {/* <AssureKyc target="_blank" rel="noreferrer" href="https://www.assuredefi.io/projects/polyvertex/">
         <img src="/images/kyc.png" />
       </AssureKyc>
       <RugDoc target="_blank" rel="noreferrer" href="https://rugdoc.io/project/polyvertex/">
         <img src="/images/rugdoc-dark.png" />
-      </RugDoc>
+      </RugDoc> */}
       <PanelFooter {...props} />
     </StyledPanel>
   );

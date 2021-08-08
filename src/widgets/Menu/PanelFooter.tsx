@@ -42,7 +42,7 @@ const SettingsEntry = styled.div`
   display: flex;
   align-items: center;
   justify-content: space-between;
-  height: ${MENU_ENTRY_HEIGHT}px;
+  width: ${MENU_ENTRY_HEIGHT}px;
   padding: 0 8px;
 `;
 
@@ -50,7 +50,7 @@ const SocialEntry = styled.div`
   display: flex;
   align-items: center;
   justify-content: space-between;
-  height: ${MENU_ENTRY_HEIGHT}px;
+  width: ${MENU_ENTRY_HEIGHT}px;
   padding: 0 16px;
 `;
 
